@@ -12,11 +12,11 @@ I built DraftEdge because I enjoy fantasy football and wanted one tool that coul
 
 ## Demo
 
-Live demo: **Coming soon**
-
-<!-- Add a desktop screenshot here after deployment.
-![DraftEdge waiver planner](docs/draftedge-desktop.png)
--->
+<img
+  src="./docs/draftedge-demo.png"
+  alt="DraftEdge waiver recommendations and resulting lineup preview"
+  width="100%"
+/>
 
 ## Key features
 
