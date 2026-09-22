@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../vendor/shadcn-tailwind-4.13.0.css";
+
+:root {
+  --background: #07140f;
+  --foreground: #f4f8f5;
+  --card: #10231a;
+  --card-foreground: #f4f8f5;
+  --popover: #10231a;
+  --popover-foreground: #f4f8f5;
+  --primary: #b6f23a;
+  --primary-foreground: #07140f;
+  --secondary: #163326;
+  --secondary-foreground: #f4f8f5;
+  --muted: #163326;
+  --muted-foreground: #9aafa2;
+  --accent: #204a34;
+  --accent-foreground: #f4f8f5;
+  --destructive: #ff6b6b;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #b6f23a;
+  --radius: 0.9rem;
+  --team-ars: #e30613;
+  --team-avl: #7a263a;
+  --team-bou: #d71920;
+  --team-bre: #d71920;
+  --team-bha: #0057b8;
+  --team-bur: #6c1d45;
+  --team-che: #034694;
+  --team-cry: #1b458f;
+  --team-eve: #003399;
+  --team-ful: #f1f1f1;
+  --team-lee: #f1f1f1;
+  --team-liv: #c8102e;
+  --team-mci: #6cabdd;
+  --team-mun: #da291c;
+  --team-new: #2a2a2a;
+  --team-nfo: #dd0000;
+  --team-sun: #eb172b;
+  --team-tot: #f1f1f1;
+  --team-whu: #7a263a;
+  --team-wol: #fdb913;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); }
+body { margin: 0; min-width: 320px; background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
+button, input { font: inherit; }
+
+.pitch {
+  width: min(100%, 31rem);
+  aspect-ratio: 2 / 3;
+  background-color: #176b46;
+  background-image: linear-gradient(rgba(255,255,255,.04) 50%, transparent 50%);
+  background-size: 100% 20%;
+}
+
+.pitch::before {
+  content: "";
+  position: absolute;
+  inset: 3%;
+  border: 2px solid rgba(255,255,255,.23);
+  border-radius: .35rem;
+}
+
+.pitch-halfway {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 3%;
+  right: 3%;
+  height: 2px;
+  background: rgba(255,255,255,.23);
+}
+
+.pitch-centre {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 5.5rem;
+  height: 5.5rem;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(255,255,255,.23);
+  border-radius: 999px;
+}
+
+.pitch-centre::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: .45rem;
+  height: .45rem;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: rgba(255,255,255,.5);
+}
+
+.pitch-box {
+  position: absolute;
+  z-index: 1;
+  left: 27%;
+  width: 46%;
+  height: 12%;
+  border: 2px solid rgba(255,255,255,.23);
+}
+
+.pitch-box-top { top: 3%; border-top: 0; }
+.pitch-box-bottom { bottom: 3%; border-bottom: 0; }
+
+.player-card {
+  position: relative;
+  width: 4.5rem;
+  flex: 0 0 4.5rem;
+  filter: drop-shadow(0 .45rem .45rem rgba(0,0,0,.2));
+}
+
+.jersey-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 2.5rem;
+  overflow: hidden;
+}
+
+.jersey {
+  display: block;
+  width: 3.25rem !important;
+  max-width: 3.25rem !important;
+  height: 2.5rem !important;
+  max-height: 2.5rem !important;
+  flex: none;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.jersey-fallback {
+  width: 68%;
+  height: 82%;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 28% 28% 16% 16%;
+  background: var(--team-colour);
+}
+
+.jersey-fallback-gk { background: #f1cf24; }
+
+.player-name,
+.player-meta {
+  min-height: 1.25rem;
+  padding-inline: .25rem;
+  line-height: 1.25rem;
+}
+
+.player-name {
+  position: relative;
+  z-index: 2;
+  background: #2b003a;
+  color: white;
+  font-size: .75rem;
+  font-weight: 650;
+}
+
+.player-meta {
+  background: rgba(230,255,246,.82);
+  color: #07140f;
+  font-size: .68rem;
+}
+
+.player-fixture {
+  border-top: 1px solid rgba(7,20,15,.1);
+  color: rgba(7,20,15,.65);
+  font-size: .6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
